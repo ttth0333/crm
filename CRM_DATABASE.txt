@@ -51,6 +51,8 @@ INSERT INTO roles( name, description ) VALUES ("ROLE_ADMIN", "Quáº£n trá»�
 INSERT INTO roles( name, description ) VALUES ("ROLE_MANAGER", "Quáº£n lĂ½");
 INSERT INTO roles( name, description ) VALUES ("ROLE_USER", "NhĂ¢n viĂªn");
 
-INSERT INTO status( name ) VALUES ("ChÆ°a thá»±c hiá»‡n");
-INSERT INTO status( name ) VALUES ("Äang thá»±c hiá»‡n");
-INSERT INTO status( name ) VALUES ("ÄĂ£ hoĂ n thĂ nh");
+INSERT INTO status( name ) VALUES ("Chưa hoàn thành");
+INSERT INTO status( name ) VALUES ("Đang hoàn thành");
+INSERT INTO status( name ) VALUES ("Đã hoàn thành");
+
+/////EDit by Me
