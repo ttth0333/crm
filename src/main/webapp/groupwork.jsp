@@ -1,3 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +101,7 @@
                                                                          aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
-                        <a href="groupwork.html" class="waves-effect"><i class="fa fa-table fa-fw"
+                        <a href="groupwork.jsp" class="waves-effect"><i class="fa fa-table fa-fw"
                                 aria-hidden="true"></i><span class="hide-menu">Dự án</span></a>
                     </li>
                     <li>
@@ -146,28 +148,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach items="${jobs}" var="job">
                                         <tr>
-                                            <td>1</td>
-                                            <td>Phân tích dự án</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
+                                            <td>${job.getId()}</td>
+                                            <td>${job.getName()}</td>
+                                            <td>${job.getStartDate()}</td>
+                                            <td>${job.getEndDate()}</td>
                                             <td>
                                                 <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
+                                                <a href="#" jobId="${job.getId()}" class="btn btn-sm btn-danger btn-delete">Xóa</a>
                                                 <a href="groupwork-details.html" class="btn btn-sm btn-info">Xem</a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Thiết kế hệ thống</td>
-                                            <td>22/05/2019</td>
-                                            <td>30/05/2019</td>
-                                            <td>
-                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
-                                                <a href="#" class="btn btn-sm btn-danger">Xóa</a>
-                                                <a href="groupwork-details.html" class="btn btn-sm btn-info">Xem</a>
-                                            </td>
-                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -195,6 +188,7 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
+    <script src="js/job.js"></script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
