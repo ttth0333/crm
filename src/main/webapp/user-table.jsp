@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,11 +95,11 @@
                     </li>
                     <li>
                         <a href="user-table.jsp" class="waves-effect"><i class="fa fa-user fa-fw"
-                                                                         aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
+                                aria-hidden="true"></i><span class="hide-menu">Thành viên</span></a>
                     </li>
                     <li>
                         <a href="role-table.jsp" class="waves-effect"><i class="fa fa-modx fa-fw"
-                                aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
+                                                                         aria-hidden="true"></i><span class="hide-menu">Quyền</span></a>
                     </li>
                     <li>
                         <a href="groupwork.jsp" class="waves-effect"><i class="fa fa-table fa-fw"
@@ -125,10 +126,10 @@
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Danh sách quyền</h4>
+                        <h4 class="page-title">Danh sách thành viên</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12 text-right">
-                        <a href="role-add.html" class="btn btn-sm btn-success">Thêm mới</a>
+                        <a href="user-add.html" class="btn btn-sm btn-success">Thêm mới</a>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -141,23 +142,28 @@
                                     <thead>
                                         <tr>
                                             <th>STT</th>
-                                            <th>Tên Quyền</th>
-                                            <th>Mô Tả</th>
-                                            <th>Hành Động</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Username</th>
+                                            <th>Role</th>
+                                            <th>#</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="role-body">
-                                        <c:forEach items="${roles}" var="role">
-                                            <tr>
-                                                <td id="role_id" >${role.getId()}</td>
-                                                <td>${role.getName()}</td>
-                                                <td>${role.getDescription()}</td>
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-primary btn-update">Sửa</a>
-                                                    <a href="#" roleId="${role.getId()}" class="btn btn-sm btn-danger btn-delete">Xóa</a>
-                                                </td>
-                                            </tr>
-                                        </c:forEach>
+                                    <tbody>
+                                    <c:forEach items="${members}" var="member">
+                                        <tr>
+                                            <td id="member_id">${member.getId()}</td>
+                                            <td>${member.getFullname()}</td>
+                                            <td></td>
+                                            <td>${member.getUsername()}</td>
+                                            <td>${member.getRolename()}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-sm btn-primary">Sửa</a>
+                                                <a href="#" memberId="${member.getId()}" class="btn btn-sm btn-danger btn-delete">Xóa</a>
+                                                <a href="user-details.html" class="btn btn-sm btn-info">Xem</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -185,7 +191,7 @@
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.min.js"></script>
-    <script src="js/role.js"></script>
+    <script src="js/member.js"></script>
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
